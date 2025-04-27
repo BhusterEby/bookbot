@@ -1,3 +1,5 @@
+from stats import book_word_count
+
 # Function: make a string of the provided .txt file (book) location
 def get_book_text(fp):
     # Empty string, to store the book's contents in
@@ -8,15 +10,6 @@ def get_book_text(fp):
         file_contents = f.read()
     # Return: string containing the entire book
     return file_contents
-
-# Function: count all the words in the provided book
-def book_word_count(book_str):
-    # New list, containing all of the words generated using .split()
-    book_wrds = book_str.split()
-    # Count how many words there are in the list
-    word_numb = len(book_wrds)
-    # Return: number of words in the book
-    return word_numb
 
 # Function: main
 def main():
