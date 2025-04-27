@@ -1,4 +1,5 @@
 from stats import book_word_count
+from stats import book_char_count
 
 # Function: make a string of the provided .txt file (book) location
 def get_book_text(fp):
@@ -17,7 +18,10 @@ def main():
     story_string = get_book_text("books/frankenstein.txt")
     # Get the word count
     num_words = book_word_count(story_string)
+    # Get the character count
+    story_dict = book_char_count(story_string)
     print(f"{num_words} words found in the document")
+    print(story_dict)
 
 # Run
 main()
