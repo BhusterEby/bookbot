@@ -24,3 +24,42 @@ def book_char_count(str_book):
             char_dict[char] = 1
     # Return: dictionary filled with counted characters
     return char_dict
+
+# Function: key for the .sort() command
+def sort_key(dict):
+    # Return: variable used in the "num" key
+    return dict["num"]
+
+# Function: sorts a dictionary of counted characters
+def book_dict_sort(dict_count):
+    # Empty list, to sort the dictionaries into
+    sort_list = []
+    # For loop: for each key in the dictionary
+    for letter in dict_count:
+        # Form a new dictionary, using both the key and its value as two separate values
+            # Then add it to the list
+        sort_list.append({"char": letter, "num": dict_count[letter]})
+    # Organizes the list using .sort()
+        # In reverse to sort from max to min, sort by the sort_key function
+    sort_list.sort(reverse=True, key=sort_key)
+    # Return: sorted list of counted characters
+    return sort_list
+
+# Function: prints out a book report
+def book_report(path_way, word_num, char_list):
+    # 1st set: introduce the report, and the path to the book
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {path_way}...")
+    # 2nd set: provide the total amount of words
+    print("----------- Word Count ----------")
+    print(f"Found {word_num} total words")
+    # 3rd set: provide the total count of each character/letter
+    print("--------- Character Count -------")
+    # For loop: for each counted item in the list
+    for c in char_list:
+        # Check if the character is an alphabetical letter
+        if c["char"].isalpha():
+            # If so, print it
+            print(f"{c["char"]}: {c["num"]}")
+    # End the book report
+    print("============= END ===============")

@@ -1,5 +1,7 @@
 from stats import book_word_count
 from stats import book_char_count
+from stats import book_dict_sort
+from stats import book_report
 
 # Function: make a string of the provided .txt file (book) location
 def get_book_text(fp):
@@ -20,8 +22,10 @@ def main():
     num_words = book_word_count(story_string)
     # Get the character count
     story_dict = book_char_count(story_string)
-    print(f"{num_words} words found in the document")
-    print(story_dict)
+    # Sort the character count
+    sort_story_dict = book_dict_sort(story_dict)
+    # Generate the book report
+    book_report("books/frankenstein.txt", num_words, sort_story_dict)
 
 # Run
 main()
